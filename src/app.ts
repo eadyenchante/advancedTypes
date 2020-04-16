@@ -65,6 +65,9 @@ type Combineable = string | number;
 type Numeric = number | boolean;
 type universal = Combineable & Numeric;
 
+function add(a: number, b: string): string;
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
 function add(a: Combineable, b: Combineable) {
   if (typeof a === "string" || typeof b === "string") {
     return a.toString() + b.toString();
@@ -72,38 +75,69 @@ function add(a: Combineable, b: Combineable) {
   return a + b;
 }
 
-interface Bird {
-    type: 'bird';
-  flyingSpeed: number;
-}
-
-interface Horse {
-    type: 'horse';
-    runningSpeed: number;
-}
-
-type Animal = Bird | Horse;
-
-function moveAnimal(animal: Animal){
-    let speed;
-switch (animal.type){
-    case 'bird':
-        speed = animal.flyingSpeed;
-        break;
-    case 'horse':
-        speed = animal.runningSpeed;
-}
-console.log('moving with speed: ' + speed);
-}
-
-moveAnimal({type: 'bird', flyingSpeed: 10})
-
-// const userInput = <HTMLInputElement>document.getElementById('user-input');
+const result = add('eady', 'daisy');
+result.split(' ');
 
 
 
-//  const userInput = document.getElementById('user-input') as HTMLInputElement;
+const fetchUserData = {
+    id: 'u1',
+    name: 'max',
+    job: { title: 'CEO', description: 'My own company'}
+};
 
-//  userInput.value = 'Hi there';
+console.log(fetchUserData.job && fetchUserData.job.title);
+
+const userInput = undefined;
+
+const storedData = userInput ?? 'DEFAULT';
+
+console.log(storedData);
 
 
+
+
+
+
+// interface Bird {
+//     type: 'bird';
+//   flyingSpeed: number;
+// }
+
+// interface Horse {
+//     type: 'horse';
+//     runningSpeed: number;
+// }
+
+// type Animal = Bird | Horse;
+
+// function moveAnimal(animal: Animal){
+//     let speed;
+// switch (animal.type){
+//     case 'bird':
+//         speed = animal.flyingSpeed;
+//         break;
+//     case 'horse':
+//         speed = animal.runningSpeed;
+// }
+// console.log('moving with speed: ' + speed);
+// }
+
+// moveAnimal({type: 'bird', flyingSpeed: 10})
+
+// // const userInput = <HTMLInputElement>document.getElementById('user-input');
+
+
+
+// //  const userInput = document.getElementById('user-input') as HTMLInputElement;
+
+// //  userInput.value = 'Hi there';
+
+// interface ErrorContainer {
+//     [prop: string]: string;
+// }
+
+// const errorBag: ErrorContainer = {
+// email: 'not a valed email',
+// username: 'must start with a capital'
+// };
